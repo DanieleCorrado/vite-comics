@@ -17,22 +17,52 @@ export default {
       <ul>
         <li>
           <a href="#">
-            link N
+            CHARACTERS
           </a>
         </li>
         <li>
           <a href="#">
-            link N
+            COMICS
           </a>
         </li>
         <li>
           <a href="#">
-            link N
+            MOVIES
           </a>
         </li>
         <li>
           <a href="#">
-            link N
+            TV
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            GAMES
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            COLLECTIBLES
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            VIDEOS
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            FANS
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            NEWS
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            SHOP
           </a>
         </li>
 
@@ -44,7 +74,7 @@ export default {
 
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 @use '../styles/partials/variables.scss' as *;
 @use '../styles/partials/mixins.scss' as *;
@@ -66,7 +96,6 @@ header {
     li a {
       display: inline-block;
       padding: 10px;
-      text-decoration: none;
 
       &.active, &:hover{
         border-bottom: 3px solid blue;
