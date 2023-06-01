@@ -1,7 +1,86 @@
 <script>
 export default {
   name: "AppHeader",
+
+  data() {
+  return {
+    active: 0,
+    menu: [
+      {
+        name: 'CHARACTERS',
+        link: '#',
+        isActive: false,
+      },
+      {
+        name: 'COMICS',
+        link: '#',
+        isActive: true,
+      },
+      {
+        name: 'MOVIES',
+        link: '#',
+        isActive: false,
+      },
+      {
+        name: 'TV',
+        link: '#',
+        isActive: false,
+      },
+      {
+        name: 'GAMES',
+        link: '#',
+        isActive: false,
+      },
+      {
+        name: 'COLLECTIBLES',
+        link: '#',
+        isActive: false,
+      },
+      {
+        name: 'VIDEOS',
+        link: '#',
+        isActive: false,
+      },
+      {
+        name: 'FANS',
+        link: '#',
+        isActive: false,
+      },
+      {
+        name: 'NEWS',
+        link: '#',
+        isActive: false,
+      },
+      {
+        name: 'SHOP',
+        link: '#',
+        isActive: false,
+      },  
+      ]
+    
+    }
+  },
+methods: {
+
+  changeActivePage(idx) {
+    
+   this.menu[idx].isActive = true;
+
+   for(let i = 0; i < this.menu.length; i++ ) {
+    if(i === idx) {
+      this.menu[i].isActive = true;
+    } else {
+      this.menu[i].isActive = false;
+
+    }
+   }
+   
+  }
+
 }
+}
+
+
 </script>
 
 <template>
@@ -15,54 +94,10 @@ export default {
     <nav>
 
       <ul>
-        <li>
-          <a href="#">
-            CHARACTERS
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            COMICS
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            MOVIES
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            TV
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            GAMES
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            COLLECTIBLES
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            VIDEOS
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            FANS
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            NEWS
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            SHOP
+
+        <li v-for="(element, idx) in menu" :key="idx" @click="changeActivePage(idx)">
+          <a :href="element.link" :class="element.isActive ? 'active' : ''">
+            {{element.name}}
           </a>
         </li>
 
@@ -93,13 +128,20 @@ header {
     list-style: none;
     @include center();
 
-    li a {
-      display: inline-block;
-      padding: 10px;
-
-      &.active, &:hover{
-        border-bottom: 3px solid blue;
+    li {
+      .active {
+        border-color: 1px solid black;
       }
+
+      a {
+        display: inline-block;
+        padding: 10px;
+
+        &.active, &:hover {
+          border-bottom: 3px solid blue;
+        }
+      }
+
     }
   }
 }
