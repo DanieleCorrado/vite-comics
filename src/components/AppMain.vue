@@ -23,7 +23,7 @@ export default {
 
     <div id="comic" v-for="(comic, idx) in comics" :key="idx">
       <img :src="comic.thumb" alt="Comic cover">
-      <div>{{ comic.series }}</div>
+      <div id="title">{{ comic.series }}</div>
     </div>
 
   </div>
@@ -68,18 +68,25 @@ main {
     #comic {
 
       width: calc((100% / 6) - 10px);
+      height: 200px;
       margin-right: 10px;
+      margin-top: 20px;
       text-align: center;
+      cursor: pointer;
 
       img {
-        width: 100px;
+        height: 90%;
+      }
+
+      #title {
+        margin-top: 5px;
       }
     }
   }
 
   #more-content {
     text-align: center;
-    margin-bottom: 10px;
+    margin: 10px 0;
 
     button {
     padding: 10px 30px;
